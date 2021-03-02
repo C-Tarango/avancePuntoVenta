@@ -63,7 +63,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(31, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 133);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(199, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +95,7 @@
             // 
             // txt_usuario
             // 
-            this.txt_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
+            this.txt_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(71)))));
             this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_usuario.Location = new System.Drawing.Point(378, 148);
             this.txt_usuario.Name = "txt_usuario";
@@ -104,7 +104,7 @@
             // 
             // txt_password
             // 
-            this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
+            this.txt_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(71)))));
             this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_password.Location = new System.Drawing.Point(375, 222);
             this.txt_password.Name = "txt_password";
@@ -114,14 +114,14 @@
             // 
             // btn_iniciarSesion
             // 
-            this.btn_iniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(202)))), ((int)(((byte)(18)))));
+            this.btn_iniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(71)))));
             this.btn_iniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_iniciarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(168)))), ((int)(((byte)(69)))));
             this.btn_iniciarSesion.FlatAppearance.BorderSize = 0;
             this.btn_iniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_iniciarSesion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_iniciarSesion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btn_iniciarSesion.Location = new System.Drawing.Point(407, 272);
+            this.btn_iniciarSesion.ForeColor = System.Drawing.Color.White;
+            this.btn_iniciarSesion.Location = new System.Drawing.Point(407, 271);
             this.btn_iniciarSesion.Name = "btn_iniciarSesion";
             this.btn_iniciarSesion.Size = new System.Drawing.Size(207, 49);
             this.btn_iniciarSesion.TabIndex = 7;

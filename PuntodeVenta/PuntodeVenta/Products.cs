@@ -47,18 +47,13 @@ namespace PuntodeVenta
         {
             try
             {
-                if (MessageBox.Show("¿Estás seguro de eliminar el producto?", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
-                {
-                    comando.Connection = conexion.abrirConexion();
-                    comando.CommandText = "SP_PRODUCTOS_ELIMINAR";
-                    comando.CommandType = CommandType.StoredProcedure;
-                    comando.Parameters.AddWithValue("@id_producto", id_producto);
-                    comando.ExecuteNonQuery();
-                    comando.Parameters.Clear();
-                    comando.Connection = conexion.cerrarConexion();
-                    MessageBox.Show("El producto se elimino exitosamente", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-               
+                comando.Connection = conexion.abrirConexion();
+                comando.CommandText = "SP_PRODUCTOS_ELIMINAR";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@id_producto", id_producto);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+                comando.Connection = conexion.cerrarConexion();             
             }
             catch (Exception)
             {

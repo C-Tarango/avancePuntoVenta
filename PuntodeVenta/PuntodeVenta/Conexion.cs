@@ -11,7 +11,7 @@ namespace PuntodeVenta
 {
     class Conexion
     {
-        static private string cadena = "Data Source=DESKTOP-AAI7VU3\\SQLEXPRESS;Initial Catalog=Estancias_II;Integrated Security=True";
+        static private string cadena = "Data Source=LAPTOP-FSBULS12;Initial Catalog=Punto_de_Venta;Integrated Security=True";
         private SqlConnection conexion = new SqlConnection(cadena);
         public SqlConnection abrirConexion()
         {

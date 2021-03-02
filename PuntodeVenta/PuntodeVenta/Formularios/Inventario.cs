@@ -21,9 +21,10 @@ namespace PuntodeVenta
             panelAgregar.Visible = false;
             mostrarProductos();
             llenarCombo();
+            dgrid_inventario.Columns[0].ReadOnly = true;
             dgrid_inventario.Columns[1].ReadOnly = true;
             dgrid_inventario.Columns[2].ReadOnly = true;
-            lbl_cantProductos.Text = (dgrid_inventario.Rows.Count - 1).ToString();
+            lbl_cantProductos.Text = (dgrid_inventario.Rows.Count).ToString();
         }
         private void mostrarProductos()
         {
@@ -48,7 +49,14 @@ namespace PuntodeVenta
             reporteInventario.agregarInventario();
             mostrarProductos();
             errorProvider1.SetError(txt_existencia, "");
-            lbl_cantProductos.Text = (dgrid_inventario.Rows.Count - 1).ToString();
+            lbl_cantProductos.Text = (dgrid_inventario.Rows.Count).ToString();
+            panelAgregar.Visible = false;
+            dgrid_inventario.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
+            dgrid_inventario.Visible = true;
+            iconlupa.Visible = true;
+
         }
         private void modificarInventario()
         {
@@ -59,10 +67,14 @@ namespace PuntodeVenta
         }
         private void eliminarInventario()
         {
-            reporteInventario.ID_PRODUCTO = Convert.ToInt32(dgrid_inventario.CurrentRow.Cells[0].Value);
-            reporteInventario.eliminarInventario();
-            lbl_cantProductos.Text = (dgrid_inventario.Rows.Count - 2).ToString();
-            mostrarProductos();
+            if (MessageBox.Show("¿Quieres eliminar el producto?", "Inventario", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                reporteInventario.ID_PRODUCTO = Convert.ToInt32(dgrid_inventario.CurrentRow.Cells[0].Value);
+                reporteInventario.eliminarInventario();
+                lbl_cantProductos.Text = (dgrid_inventario.Rows.Count-1).ToString();
+                mostrarProductos();
+                MessageBox.Show("Se ha eliminado el producto de manera exitosa", "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void buscarInventario()
         {
@@ -72,14 +84,22 @@ namespace PuntodeVenta
 
         private void Btn_agregarInventario_Click(object sender, EventArgs e)
         {
-            panelAgregar.Location = new Point(252, 82);
-            panelAgregar.Size = new Size(271, 272);
+            panelAgregar.Location = new Point(219, 79);
+            panelAgregar.Size = new Size(352, 313);
             panelAgregar.Visible = true;
+            txt_buscarProducto.Visible = false;
+            iconlupa.Visible = false;
+            dgrid_inventario.Visible = false;
+            lbl_buscar.Visible = false;
         }
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             panelAgregar.Visible = false;
+            dgrid_inventario.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
+            iconlupa.Visible = true;
         }
 
         private void Btn_agregar_inventario_Click(object sender, EventArgs e)
@@ -93,31 +113,6 @@ namespace PuntodeVenta
             modificarInventario();
         }
 
-        private void Dgrid_inventario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
-        private void Dgrid_inventario_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress -= new KeyPressEventHandler(Columns_KeyPress);
-            if (dgrid_inventario.CurrentCell.ColumnIndex == 3)
-            {
-                TextBox tb = e.Control as TextBox;
-                if (tb != null)
-                {
-                    tb.KeyPress += new KeyPressEventHandler(Columns_KeyPress);
-                }
-            }
-        }
-        private void Columns_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Btn_eliminar_Click(object sender, EventArgs e)
         {
             eliminarInventario();
@@ -126,6 +121,19 @@ namespace PuntodeVenta
         private void Txt_buscarProducto_KeyDown(object sender, KeyEventArgs e)
         {
             buscarInventario();
+        }
+
+        private void dgrid_inventario_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int existencia = Convert.ToInt32(dgrid_inventario.CurrentRow.Cells[3].Value);
+            int id = Convert.ToInt32(dgrid_inventario.CurrentRow.Cells[0].Value);
+            Conexion conexion = new Conexion();
+            SqlCommand comando = new SqlCommand("UPDATE Inventario SET existencia=@existencia WHERE id_producto=@id_producto", conexion.abrirConexion());
+            comando.Parameters.AddWithValue("@existencia", existencia);
+            comando.Parameters.AddWithValue("@id_producto", id);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.cerrarConexion();
         }
     }
 }

@@ -68,7 +68,7 @@ namespace PuntodeVenta
 
         private void btn_iniciarSesion_Click(object sender, EventArgs e)
         {
-            if (txt_usuario.Text==""||txt_password.Text=="")
+            if (txt_usuario.Text == "" || txt_password.Text == "")
             {
                 MessageBox.Show("Debes ingresar el usuario y la contraseña.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -77,13 +77,13 @@ namespace PuntodeVenta
                 Usuarios usuarios = new Usuarios();
                 usuarios.USUARIO = txt_usuario.Text;
                 usuarios.CONTRASEÑA = txt_password.Text;
-                if (txt_usuario.Text=="Jacob Fender")
+                if (txt_usuario.Text == "Jacob")
                 {
                     Inicio inicio = new Inicio();
-                    inicio.lbl_prueba.Text = "Josue Jacob Luna Estrada";
                 }
                 usuarios.iniciarSesion(this);
             }
+
         }
 
         private void PanelUser_Paint(object sender, PaintEventArgs e)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
+using PuntodeVenta.Formularios;
 
 namespace PuntodeVenta
 {
@@ -64,21 +65,17 @@ namespace PuntodeVenta
 
         private void Btn_maximizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            btn_maximizar.Visible = false;
-            btn_restaurar.Visible = true;
+          
         }
 
         private void Btn_minimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            
         }
 
         private void Btn_restaurar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            btn_restaurar.Visible = false;
-            btn_maximizar.Visible = true;
+            
         }
 
         private void Btn_productos_Click(object sender, EventArgs e)
@@ -89,18 +86,14 @@ namespace PuntodeVenta
 
         private void Btn_Ventas_Click(object sender, EventArgs e)
         {
+
             cambiarIcono(sender);
             AbrirFormulario(new Ventas());
         }
 
-        private void Btn_clientes_Click(object sender, EventArgs e)
-        {
-            cambiarIcono(sender);
-            AbrirFormulario(new Detalles_Ventas());
-        }
-
         private void Btn_Compras_Click(object sender, EventArgs e)
         {
+      
             cambiarIcono(sender);
             AbrirFormulario(new Inventario());
         }
@@ -120,6 +113,26 @@ namespace PuntodeVenta
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btn_inventario_Click(object sender, EventArgs e)
+        {
+            cambiarIcono(sender);
+            AbrirFormulario(new Inventario());
+
+        }
+
+        private void btn_realizarVenta_Click(object sender, EventArgs e)
+        {
+            cambiarIcono(sender);
+            AbrirFormulario(new realizarVenta());
+        }
+
+        private void btn_salir_Click_1(object sender, EventArgs e)
+        {
+            Form1 inicio = new Form1();
+            inicio.Show();
+            this.Hide();
         }
     }
 }

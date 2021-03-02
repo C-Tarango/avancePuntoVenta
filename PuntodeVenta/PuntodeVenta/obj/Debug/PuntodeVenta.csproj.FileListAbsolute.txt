@@ -19,3 +19,19 @@ C:\Users\user\Desktop\PROGRAMACION\Orientada a Objetos\PuntodeVenta\PuntodeVenta
 C:\Users\user\Desktop\PROGRAMACION\Orientada a Objetos\PuntodeVenta\PuntodeVenta\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\user\Desktop\PROGRAMACION\Orientada a Objetos\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Detalles_Ventas.resources
 C:\Users\user\Desktop\PROGRAMACION\Orientada a Objetos\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Formularios.Ventas.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\bin\Debug\PuntodeVenta.exe.config
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\bin\Debug\PuntodeVenta.exe
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\bin\Debug\PuntodeVenta.pdb
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.csprojAssemblyReference.cache
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Form1.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Inicio.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Inventario.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Productos.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Properties.Resources.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.csproj.GenerateResource.cache
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.csproj.CoreCompileInputs.cache
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.csproj.CopyComplete
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.exe
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.pdb
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.realizarVenta.resources
+C:\Users\chris\OneDrive\Desktop\EjemploGit\PuntodeVenta\PuntodeVenta\obj\Debug\PuntodeVenta.Formularios.Ventas.resources

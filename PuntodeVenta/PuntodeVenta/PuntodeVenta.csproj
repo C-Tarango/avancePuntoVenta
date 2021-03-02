@@ -60,16 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-    <Compile Include="Formularios\Detalles_Ventas.cs">
+    <Compile Include="detallesVentas.cs" />
+    <Compile Include="detalles_ventas.cs" />
+    <Compile Include="Formularios\Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Detalles_Ventas.Designer.cs">
-      <DependentUpon>Detalles_Ventas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Estancias_IIDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Estancias_IIDataSet.xsd</DependentUpon>
+    <Compile Include="Formularios\Ventas.Designer.cs">
+      <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inventario.cs">
       <SubType>Form</SubType>
@@ -95,12 +92,6 @@
     <Compile Include="Formularios\Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Ventas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Ventas.Designer.cs">
-      <DependentUpon>Ventas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,11 +101,14 @@
     <Compile Include="Formularios\Realizar_Venta.Designer.cs">
       <DependentUpon>Realizar_Venta.cs</DependentUpon>
     </Compile>
+    <Compile Include="classVentas.cs" />
+    <Compile Include="Punto_de_VentaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Punto_de_VentaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reporte_inventario.cs" />
     <Compile Include="Usuarios.cs" />
-    <EmbeddedResource Include="Formularios\Detalles_Ventas.resx">
-      <DependentUpon>Detalles_Ventas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,17 +136,6 @@
     <EmbeddedResource Include="Formularios\Realizar_Venta.resx">
       <DependentUpon>Realizar_Venta.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Estancias_IIDataSet.xsc">
-      <DependentUpon>Estancias_IIDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Estancias_IIDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Estancias_IIDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Estancias_IIDataSet.xss">
-      <DependentUpon>Estancias_IIDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +145,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Punto_de_VentaDataSet.xsc">
+      <DependentUpon>Punto_de_VentaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Punto_de_VentaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Punto_de_VentaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Punto_de_VentaDataSet.xss">
+      <DependentUpon>Punto_de_VentaDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

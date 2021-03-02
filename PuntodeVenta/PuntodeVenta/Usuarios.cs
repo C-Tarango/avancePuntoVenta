@@ -34,7 +34,7 @@ namespace PuntodeVenta
                 comando.Connection = conexion.cerrarConexion();
                 if (tabla.Rows.Count==1)
                 {
-                    if (tabla.Rows[0][0].ToString()=="Jacob Fender")
+                    if (tabla.Rows[0][0].ToString()=="Jacob")
                     {
                         login.Hide();
                         Form1 form = new Form1();

@@ -23,13 +23,15 @@ namespace PuntodeVenta
             cbx_categoriasActualizar.SelectedIndex = 0;
             llenarCombo();
             mostrarProductos();
-            lbl_cantidadProductos.Text = (dgridProductos.Rows.Count-1).ToString();
+            lbl_cantidadProductos.Text = (dgridProductos.Rows.Count).ToString();
+           
         }
         private void mostrarProductos()
         {
             
             dgridProductos.DataSource = productos.mostrarProductos();
         }
+      
         private void llenarCombo()
         {
             
@@ -76,14 +78,34 @@ namespace PuntodeVenta
             errorProvider1.SetError(txt_nombre_agregar, "");
             errorProvider1.SetError(txt_precioCompra_agregar, "");
             errorProvider1.SetError(txt_precioVenta_agregar, "");
-
+            dgridProductos.Visible = true;
+            panelAgregar.Visible = false;
+            iconLupa.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
         }
+        private void agregarCategoria()
+        {
+            productos.NOMBRE = txt_nombreCategoria.Text;
+            productos.insertarCategoria();
+            llenarCombo();
+            dgridProductos.Visible = true;
+            panelCategoria.Visible = false;
+            iconLupa.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
+        }
+
         private void eliminarProducto()
         {
-            productos.ID_PRODUCTO = Convert.ToInt32(dgridProductos.CurrentRow.Cells[0].Value);
-            productos.eliminarProductos();
-            int conteo = dgridProductos.Rows.Count - 1;
-            lbl_cantidadProductos.Text = conteo.ToString();
+            if (MessageBox.Show("¿Estás seguro de eliminar el producto?", "Productos", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                productos.ID_PRODUCTO = Convert.ToInt32(dgridProductos.CurrentRow.Cells[0].Value);
+                productos.eliminarProductos();
+                int conteo = dgridProductos.Rows.Count-1;
+                lbl_cantidadProductos.Text = conteo.ToString();
+                MessageBox.Show("El producto se elimino exitosamente", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void veractualizarProductos()
         {
@@ -99,11 +121,12 @@ namespace PuntodeVenta
                 txt_precioCompra_actualizar.Text = leer["precioCompra"].ToString();
                 txt_precioVenta_actualizar.Text = leer["precioVenta"].ToString();
                 cbx_categoriasActualizar.SelectedValue = leer["id_categoria"].ToString();
+              
             }
-            panelActualizar.Size = new Size(449, 346);
+            panelActualizar.Size = new Size(433, 370);
             panelActualizar.Location = new Point(178, 70);
             panelActualizar.Visible = true;
-            label3.Visible = false;
+            conexion.cerrarConexion();
         }
         private void actualizarProductos()
         {
@@ -143,39 +166,60 @@ namespace PuntodeVenta
 
         private void Btn_agregarProducto_Click(object sender, EventArgs e)
         {
-            panelAgregar.Size = new Size(449, 346);
+            panelAgregar.Size = new Size(433, 370);
             panelAgregar.Location = new Point(178, 70);
             panelAgregar.Visible = true;
-            label3.Visible = false;
+            dgridProductos.Visible = false;
+            iconLupa.Visible = false;
+            txt_buscarProducto.Visible = false;
+            lbl_buscar.Visible = false;
+            panelActualizar.Visible = false;
+            panelCategoria.Visible = false;
+
         }
 
         private void Btn_cancelarProductoA_Click(object sender, EventArgs e)
         {
             panelAgregar.Visible = false;
-            label3.Visible = true;
+            dgridProductos.Visible = true;
+            iconLupa.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
         }
 
         private void Btn_cancelarProductosE_Click(object sender, EventArgs e)
         {
             panelActualizar.Visible = false;
-            label3.Visible = true;
+            dgridProductos.Visible = true;
+            iconLupa.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
         }
 
         private void Btn_editarProducto_Click(object sender, EventArgs e)
         {         
             veractualizarProductos();
+            panelAgregar.Visible = false;
+            dgridProductos.Visible = false;
+            iconLupa.Visible = false;
+            txt_buscarProducto.Visible = false;
+            lbl_buscar.Visible = false;
+            panelActualizar.Visible = true;
+            panelCategoria.Visible = false;
         }
 
         private void Label3_Click(object sender, EventArgs e)
         {
-            panelCategoria.Visible = true;
-            panelCategoria.Size = new Size(322, 243);
-            panelCategoria.Location = new Point(289, 109);
+           
         }
 
         private void IconButton2_Click(object sender, EventArgs e)
         {
             panelCategoria.Visible = false;
+            dgridProductos.Visible = true;
+            iconLupa.Visible = true;
+            lbl_buscar.Visible = true;
+            txt_buscarProducto.Visible = true;
         }
 
         private void Btn_agregarProductoA_Click(object sender, EventArgs e)
@@ -212,6 +256,59 @@ namespace PuntodeVenta
         {
             actualizarProductos();
             mostrarProductos();
+            dgridProductos.Visible = true;
+            panelActualizar.Visible = false;
+            iconLupa.Visible = true;
+            txt_buscarProducto.Visible = true;
+            lbl_buscar.Visible = true;
+        }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            panelCategoria.Visible = true;
+            panelCategoria.Size = new Size(328, 260);
+            panelCategoria.Location = new Point(289, 109);
+            panelAgregar.Visible = false;
+            dgridProductos.Visible = false;
+            iconLupa.Visible = false;
+            txt_buscarProducto.Visible = false;
+            lbl_buscar.Visible = false;
+            panelActualizar.Visible = false;
+         
+        }
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            agregarCategoria();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_nombreActualizar_FontChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
